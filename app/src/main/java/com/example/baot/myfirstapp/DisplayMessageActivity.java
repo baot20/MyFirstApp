@@ -25,9 +25,10 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        String ClickTimes= intent.getExtras().getString("ClickTimes");
         TextView textFromMain = (TextView) findViewById(R.id.textView2);
-        textFromMain.setText(message);
-        textFromMain.setTextSize(40);
+        textFromMain.setText(message + String.format(" This is main activity %S click",ClickTimes));
+        textFromMain.setTextSize(20);
 
         RelativeLayout main = (RelativeLayout) findViewById(R.id.activity_display_message);
         final ImageView imageview = new ImageView(this);

@@ -35,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         //intent.putExtra(ClickTimes,i);
+
+
+        //用来传递一些string
+        Bundle bundle = new Bundle();
+        bundle.putString("ClickTimes",String.valueOf(i));
+        intent.putExtras(bundle);
         startActivity(intent);
 
         //textView set message
