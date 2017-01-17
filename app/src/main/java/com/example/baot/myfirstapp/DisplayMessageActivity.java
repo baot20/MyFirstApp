@@ -25,9 +25,9 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        String ClickTimes= intent.getExtras().getString("ClickTimes");
+        String ClickTimes = intent.getExtras().getString("ClickTimes");
         TextView textFromMain = (TextView) findViewById(R.id.textView2);
-        textFromMain.setText(message + String.format(" This is main activity %S click",ClickTimes));
+        textFromMain.setText(message + String.format(" This is main activity %S click", ClickTimes));
         textFromMain.setTextSize(20);
 
         RelativeLayout main = (RelativeLayout) findViewById(R.id.activity_display_message);
@@ -36,43 +36,18 @@ public class DisplayMessageActivity extends AppCompatActivity {
         imageview.setBaselineAlignBottom(true);
 
         imageview.setImageResource(images[0]);
-        imageview.setOnClickListener(new View.OnClickListener(){
+        imageview.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                imageview.setImageResource(images[++currentImage%images.length]);
-                if(currentImage>4)imageview.setVisibility(View.INVISIBLE);
+            public void onClick(View v) {
+                imageview.setImageResource(images[++currentImage % images.length]);
+                if (currentImage > 4) imageview.setVisibility(View.INVISIBLE);
 
             }
         });
+     }
 
-        //
-
-
-
-
-
-     /*
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(message);
-
-        ViewGroup layout = (ViewGroup) findViewById(R.id.activity_display_message);
-        layout.addView(textView);
-
-
-        TextView textView5 = new TextView(this);
-        textView5.setTextSize(40);
-        textView5.setText("Static String");
-        //textView5.setText(intent.getStringExtra(MainActivity.ClickTimes));
-
-
-
-        TextView textForClickTimes = (TextView) findViewById(R.id.textView2);
-        textForClickTimes.setText("Static String");
-
-        textForClickTimes.setText(intent.getStringExtra(MainActivity.ClickTimes));
-        */
-
+    public void goToCalculate(View view){
+        Intent intent = new Intent(this, CalculateActivity.class);
+        startActivity(intent);
     }
 }
